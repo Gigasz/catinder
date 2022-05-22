@@ -15,9 +15,9 @@ export const fetchInitialCatList = (
   try {
     const { data } = await api.get('/images/search', {
       params: {
-        size: 'full',
+        size: 'med',
         page: 0,
-        limit: 30,
+        limit: 50,
       },
     });
 

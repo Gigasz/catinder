@@ -7,7 +7,7 @@ import {
 export interface TouchableProps extends ViewStyle {
   children?: React.ReactNode,
   onPress?: () => void;
-  disabled: boolean;
+  disabled?: boolean;
 }
 
 export function Touchable({
