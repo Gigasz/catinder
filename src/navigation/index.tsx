@@ -3,7 +3,9 @@ import * as React from 'react';
 import { NavigationContainer, RouteProp } from '@react-navigation/native';
 import { BottomTabNavigationOptions, createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator, NativeStackNavigationOptions } from '@react-navigation/native-stack';
-import { CatsListPage, SplashPage } from 'components/pages';
+import {
+  CatsListPage, MessagesPage, ProfilePage, SplashPage,
+} from 'components/pages';
 import { SvgXml } from 'react-native-svg';
 
 import CatPaw from 'assets/svg/cat-paw.svg';
@@ -61,18 +63,21 @@ const rootNavigatorOptions: NativeStackNavigationOptions = {
 
 function BottomTabNavigator() {
   return (
-    <Tab.Navigator screenOptions={bottomTabNavigatorOptions}>
+    <Tab.Navigator
+      safeAreaInsets={{ bottom: 0 }}
+      screenOptions={bottomTabNavigatorOptions as BottomTabNavigationOptions}
+    >
       <Tab.Screen
         name={BottomTabNavigatorRoutes.CATS_LIST}
         component={CatsListPage}
       />
       <Tab.Screen
         name={BottomTabNavigatorRoutes.CHAT}
-        component={CatsListPage}
+        component={MessagesPage}
       />
       <Tab.Screen
         name={BottomTabNavigatorRoutes.PROFILE}
-        component={CatsListPage}
+        component={ProfilePage}
       />
     </Tab.Navigator>
   );
