@@ -22,6 +22,7 @@ module.exports = {
     jest: true,
   },
   rules: {
+    '@typescript-eslint/default-param-last': 'off',
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx', '.ts', '.tsx'] }],
     'react/prop-types': 'off',
     'react/require-default-props': 'off',
