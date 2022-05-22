@@ -3,6 +3,7 @@ import { AppDispatch } from 'store';
 import {
   CatsListActionTypes,
 } from 'store/types/cats-list-types';
+import { uniqueNamesGenerator, adjectives, names } from 'unique-names-generator';
 
 export const fetchInitialCatList = (
   onSuccess: () => void,
@@ -23,7 +24,16 @@ export const fetchInitialCatList = (
 
     dispatch({
       type: CatsListActionTypes.FETCH_INITIAL_LIST_SUCCESS,
-      payload: { cats_list: data },
+      payload: {
+        cats_list: data.map((cat) => ({
+          ...cat,
+          name: uniqueNamesGenerator({
+            dictionaries: [adjectives, names],
+            length: 2,
+            style: 'capital',
+          }).replace('_', ' '),
+        })),
+      },
     });
     onSuccess();
   } catch (error) {

@@ -11,6 +11,7 @@ export enum CatsListActionTypes {
 type CatProfile = {
   id: string;
   url: string;
+  name: string;
 };
 
 export interface CatsListState {

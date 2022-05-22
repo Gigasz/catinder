@@ -27,6 +27,7 @@
     "react-redux": "^8.0.1",
     "redux": "^4.2.0",
     "redux-thunk": "^2.4.1",
+    "unique-names-generator": "^4.7.1",
     "yarn": "^1.22.18"
   },
   "devDependencies": {

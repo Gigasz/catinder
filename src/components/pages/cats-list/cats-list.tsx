@@ -2,7 +2,9 @@ import React, { useRef } from 'react';
 
 import { useAppSelector } from 'store';
 
-import { Box, Image, Touchable } from 'components/atoms';
+import {
+  Box, Image, Text, Touchable,
+} from 'components/atoms';
 import { Page } from 'components/molecules';
 import Swiper from 'react-native-deck-swiper';
 import { SvgXml } from 'react-native-svg';
@@ -31,7 +33,7 @@ export function CatsListPage(): JSX.Element {
           justifyContent="center"
         >
           <Swiper
-            ref={swiperRef}
+            ref={swiperRef as unknown as undefined}
             cards={cats_list}
             renderCard={(card) => (
               <Box
@@ -43,7 +45,36 @@ export function CatsListPage(): JSX.Element {
                   width="100%"
                   height={446}
                   resizeMode="cover"
-                />
+                >
+                  <Box
+                    position="absolute"
+                    bottom={0}
+                    height={48}
+                    backgroundColor="#fff"
+                    width="90%"
+                    left="5%"
+                    borderTopLeftRadius={16}
+                    borderTopRightRadius={16}
+                    paddingVertical={8}
+                    paddingHorizontal={16}
+                  >
+                    <Text
+                      style={{
+                        fontSize: 16,
+                      }}
+                    >
+                      {card.name}
+                    </Text>
+                    <Text
+                      style={{
+                        fontSize: 12,
+                        color: '#BFBFC0',
+                      }}
+                    >
+                      What are you doing tonight?
+                    </Text>
+                  </Box>
+                </Image>
               </Box>
             )}
             backgroundColor="transparent"
@@ -56,8 +87,8 @@ export function CatsListPage(): JSX.Element {
             verticalSwipe={false}
             animateOverlayLabelsOpacity
             overlayOpacityHorizontalThreshold={10}
-            inputOverlayLabelsOpacityRangeX={[-50, -10, 0, 10, 50]}
-            outputOverlayLabelsOpacityRangeX={[1, 0, 0, 0, 1]}
+            inputOverlayLabelsOpacityRangeX={[-50, -10, 0, 10, 50] as unknown as undefined}
+            outputOverlayLabelsOpacityRangeX={[1, 0, 0, 0, 1] as unknown as undefined}
             overlayLabels={{
               right: {
                 title: 'LIKE',
